@@ -4,7 +4,7 @@ import { renderTodo } from "./use-cases";
 
 const elementIDs = {
     Todolist: ".todo-list",
-    NewTodoInput: "#new-todo-input"
+    NewTodoInput: "#new-todo-input",
 }
 
 export const App = (elementId) => {
@@ -38,6 +38,16 @@ export const App = (elementId) => {
         const element = Event.target.closest("[data-id]");
         todoStore.toggleTodo(element.getAttribute("data-id"));
         displayTodos();
-    })
+    });
+
+    todoListUL.addEventListener("click", (Event) => {
+
+        if(Event.target.className == "destroy"){
+            const element = Event.target.closest("[data-id]");
+            todoStore.deleteTodo(element.getAttribute("data-id"));
+            displayTodos();
+        }
+
+    });
 
 }
