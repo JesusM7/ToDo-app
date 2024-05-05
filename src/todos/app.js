@@ -38,7 +38,6 @@ export const App = (elementId) => {
         const element = Event.target.closest("[data-id]");
         todoStore.toggleTodo(element.getAttribute("data-id"));
         displayTodos();
-
     })
 
 }

@@ -51,7 +51,7 @@ const addTodo = (description) => {
 const toggleTodo = (todoId) => {
     state.todos = state.todos.map( todo => {
         if( todo.id === todoId ){
-            todo.id = !todo.id;
+            todo.done = !todo.done;
         }
         return todo;
     });
